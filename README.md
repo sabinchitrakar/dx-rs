@@ -3,8 +3,11 @@
 
 
 - [Average Directional Movement Index (ADX)](#average-directional-movement-index-adx)
+    - [Calculation](#calculation)
 - [Average Directional Movement Index Rate (ADXR)](#average-directional-movement-index-rate-adxr)
+    - [Calculation](#calculation-1)
 - [Directional Movement Index (DX)](#directional-movement-index-dx)
+    - [Calculation](#calculation-2)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -34,6 +37,11 @@ assert_eq!(adx.next([86.98, 85.76, 86.89, ]), Some(60.952506055817096));
 assert_eq!(adx.next([88.00, 87.17, 87.77, ]), Some(66.23762155833865));
 assert_eq!(adx.next([87.87, 87.01, 87.29, ]), Some(68.23912145931837));
 ```
+### Calculation
+
+ADX<sub>t</sub>=k*ADX<sub>t-1</sub> + DX(input)  
+where k=(period-1)/period
+
 
 <a name="adxrmd"></a>
 
@@ -59,6 +67,9 @@ assert_eq!(adxr.next([88.00, 87.17, 87.77]), Some(55.63390965480972));
 assert_eq!(adxr.next([87.87, 87.01, 87.29]), Some(59.25861713224057));
 ```
 
+### Calculation
+ADXR=(ADX<sub>t</sub> + ADX<sub>t-(period-1)</sub>)/2;
+
 <a name="dxmd"></a>
 
 # Directional Movement Index (DX)
@@ -82,4 +93,17 @@ assert_eq!(dmi.next([86.58, 85.39, 86.54, ]), Some(78.11650076605797));
 assert_eq!(dmi.next([86.98, 85.76, 86.89, ]), Some(81.37936868971823));
 assert_eq!(dmi.next([88.00, 87.17, 87.77, ]), Some(87.37808356842487));
 assert_eq!(dmi.next([87.87, 87.01, 87.29, ]), Some(76.24512106323728));
+```
+### Calculation
+```
+DX=(dm_diff/dm_sum)*100;
+where:
+dm_diff=|norm_up -norm_down|;
+dm_sum=|norm_up+norm_down|;
+norm_up=sm_up/ATR;
+norm_down=sm_down/ATR;
+sm_up=smoothed(sum of up);
+sm_down=smoothed(sum of down);
+
+
 ```
