@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/immortalinfidel/dx-rs.svg?branch=master)](https://travis-ci.com/immortalinfidel/dx-rs)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 

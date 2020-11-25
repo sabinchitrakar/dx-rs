@@ -21,7 +21,7 @@ assert_eq!(dmi.next([88.00, 87.17, 87.77, ]), Some(87.37808356842487));
 assert_eq!(dmi.next([87.87, 87.01, 87.29, ]), Some(76.24512106323728));
 ```
 ### Calculation
-```
+
 DX=(dm_diff/dm_sum)*100;
 where:
 dm_diff=|norm_up -norm_down|;
@@ -32,4 +32,3 @@ sm_up=smoothed(sum of up);
 sm_down=smoothed(sum of down);
 
 
-```
